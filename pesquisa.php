@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Pesquisa</h1>
+                <h1>Pesquisa</h1>~
                 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" method="POST" action="pesquisa.php">
     <input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search">
@@ -25,10 +25,28 @@
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col">Açoes</th>
-
-      
     </tr>
   </thead>
+  <tbody>
+    <?php 
+    while ($linha =  mysqli_fetch_assoc($dados)){
+      $id=$linha['id'];
+      $nome=$linha['nome'];
+      $email=$linha['email'];
+
+      echo "<tr>
+      <td>$nome</td>
+      <td>$email</td>
+
+      <td width= 150px><a href='editarcad.php? id=$id' class='btn btn-success btn-sm'>Editar</a>
+                <a href=' ' class='btn btn-danger btn-sm' data-taggle='modal' data-target='#confirma'>excluir</a>
+                 </td>
+    
+      </tr>";
+    }
+    ?>
+
+  </tbody>
   
 </table>
             </div>
