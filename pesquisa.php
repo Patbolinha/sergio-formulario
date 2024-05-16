@@ -9,13 +9,19 @@
 </head>
 
 <body>
+  <?php
+  $pesquisa= $_POST['busca'] ?? '';
+  include "conexao.php";
+  $sql="SELECT * FROM usuario where nome LIKE '%$pesquisa%' ";
+  $dados=msyqli_query($conexao, $sql);
+  ?>
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Pesquisa</h1>~
+                <h1>Pesquisa</h1>
                 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" method="POST" action="pesquisa.php">
-    <input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search" name="busca">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">digite aqui</button>
   </form>
 </nav>
