@@ -13,15 +13,15 @@
             <div class="col">
             <?php
 include ("conexao.php");
+$id=$_POST['id'];
 $nome=$_POST['nome'];
 $email=$_POST['email'];
 $senha= password_hash ($_POST['senha'],PASSWORD_DEFAULT);
 
 
-    $sql= "INSERT INTO usuario(nome, email, senha)
-    VALUES('$nome', '$email', '$senha')";
+    $sql= "UPDATE usuario SET nome = '$nome', email = '$email', senha = '$senha' WHERE id='$id'";
     if($conexao=mysqli_query($conexao, $sql)){
-        echo"cadastro realizado com sucesso";
+        echo"alterado com sucesso";
     }
     else{
         echo"erro ao cadastra-se".mysqli_connect_error($conexao);

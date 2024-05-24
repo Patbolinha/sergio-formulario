@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col">
                 <h1>Alteração de dados</h1>
-                <form action="cad.php" method="POST">
+                <form action="editcard.php" method="POST">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome Completo</label>
                         <input type="text" class="form-control" name="nome" required value="<?php echo $linha['nome'];?>">
@@ -33,7 +33,8 @@
                         <label for="senha" class="form-label">senha</label>
                         <input type="password" class="form-control" name="senha" required value="<?php echo $linha['senha'];?>">
 
-                        <input type="submit" class="btn btn-success" href="index.html">
+                        <input type="submit" class="btn btn-success" value="salvar alterações">
+                        <input type="hidden" name="id" value="<?php echo $linha['id'];?>">
                     </div>
 
             </div>
